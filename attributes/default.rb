@@ -17,6 +17,12 @@
 # limitations under the License.
 #
 
+default[:postgresql][:client_authentication] = [
+  { :type => 'local', :database => 'all', :user => 'all', :cidr_address => '', :method => 'ident' },
+  { :type => 'host', :database => 'all', :user => 'all', :cidr_address => '127.0.0.1/32', :method => 'md5' },
+  { :type => 'host', :database => 'all', :user => 'all', :cidr_address => '::1/128', :method => 'md5' }
+]
+
 case platform
 when "debian"
 
